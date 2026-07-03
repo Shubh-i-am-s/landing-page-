@@ -9,29 +9,25 @@
 
 body {
   background-color: #0f172a;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 
 .landing-wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   padding: 24px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   transition: background-image 1s ease-in-out;
 }
 
 .landing-container {
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 48px); /* Take exactly one viewport height initially */
   max-width: 1600px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -40,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-bottom: 60px; /* Space before mobile showcase */
 }
 
 /* Navbar */
@@ -181,7 +178,7 @@ body {
 
 /* Enhanced Glassmorphism Booking Card */
 .booking-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.25);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -345,6 +342,139 @@ body {
 
 .reserve-btn:hover {
   transform: scale(1.02);
+}
+
+/* ================================
+   Mobile App Showcase Section 
+   ================================ */
+
+.mobile-showcase {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.mobile-panel {
+  width: 320px;
+  height: 640px; /* Tall aspect ratio like a phone */
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 40px;
+  padding: 30px 24px;
+  color: white;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.mobile-panel:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(255,255,255,0.15);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.panel-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+
+/* Panel 1: Featured list */
+.featured-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-right: 8px;
+  flex: 1;
+}
+.featured-list::-webkit-scrollbar { width: 4px; }
+.featured-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+.small-hostel-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.small-hostel-img {
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+}
+
+.small-hostel-info {
+  padding: 16px;
+}
+.small-hostel-info h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 6px; }
+.small-hostel-info .price { font-size: 1.15rem; font-weight: 600; }
+.small-hostel-info .price span { font-size: 0.75rem; font-weight: 400; opacity: 0.7; }
+.small-hostel-info button {
+  width: 100%; 
+  margin-top: 14px; 
+  padding: 10px; 
+  border-radius: 8px; 
+  border: none; 
+  background: white; 
+  color: black; 
+  font-weight: 600; 
+  cursor: pointer;
+}
+
+/* Panel 2: Hero text */
+.panel-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.panel-hero h2 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.panel-hero p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+.panel-hero button {
+  margin-top: auto;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: white;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
